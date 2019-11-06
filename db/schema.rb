@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_06_061706) do
+ActiveRecord::Schema.define(version: 2019_11_06_071703) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,10 +117,26 @@ ActiveRecord::Schema.define(version: 2019_11_06_061706) do
     t.index ["film_id"], name: "idx_fk_film_id"
   end
 
+  create_table "film_categories", force: :cascade do |t|
+    t.integer "film_id"
+    t.integer "category_id"
+    t.datetime "last_update"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "film_category", primary_key: ["film_id", "category_id"], force: :cascade do |t|
     t.integer "film_id", limit: 2, null: false
     t.integer "category_id", limit: 2, null: false
     t.datetime "last_update", default: -> { "now()" }, null: false
+  end
+
+  create_table "inventories", force: :cascade do |t|
+    t.integer "film_id"
+    t.integer "store_id"
+    t.datetime "last_update"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "inventory", primary_key: "inventory_id", id: :serial, force: :cascade do |t|
@@ -182,6 +198,14 @@ ActiveRecord::Schema.define(version: 2019_11_06_061706) do
     t.integer "address_id", limit: 2, null: false
     t.datetime "last_update", default: -> { "now()" }, null: false
     t.index ["manager_staff_id"], name: "idx_unq_manager_staff_id", unique: true
+  end
+
+  create_table "stores", force: :cascade do |t|
+    t.integer "manager_staff_id"
+    t.integer "address_id"
+    t.datetime "last_update"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "address", "city", primary_key: "city_id", name: "fk_address_city"

@@ -45,3 +45,9 @@ Things you may want to cover:
   * insert into cities(name, country_id,  last_update, created_at, updated_at) select city, country_id, last_update, now(), now() from city;
 * clone table addresses:
   * insert into addresses(address, address2, district, city_id, postal_code, phone, last_update, created_at, updated_at) select address, address2, district,city_id, postal_code, phone, last_update, now(), now() from address;
+* clone table stores:
+  * insert into stores(manager_staff_id, address_id, last_update, created_at, updated_at) select manager_staff_id, address_id, last_update, now(), now() from store
+* clone table inventories:
+  * insert into inventories(film_id, store_id, last_update, created_at, updated_at) select film_id, store_id, last_update, now(), now() from inventory;
+* clone table film_categories
+  * insert into film_categories(film_id, category_id, last_update, created_at, updated_at) select film_id, category_id, last_update, now(), now() from film_category;
