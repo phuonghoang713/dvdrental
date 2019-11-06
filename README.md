@@ -22,6 +22,8 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+# note
+* describe table : \d table_name or \d+ table_name
 # dvdrental
 * react_on_rails version : 11.3.0
   * rails webpacker:install:react
@@ -39,3 +41,7 @@ Things you may want to cover:
   * insert into actors(first_name, last_name, last_update, created_at, updated_at) select first_name, last_name, last_update, now(), now() from actor;
 * clone table countries
   * insert into countries(name,  last_update, created_at, updated_at) select country, last_update, now(), now() from country;
+* clone table cities:
+  * insert into cities(name, country_id,  last_update, created_at, updated_at) select city, country_id, last_update, now(), now() from city;
+* clone table addresses:
+  * insert into addresses(address, address2, district, city_id, postal_code, phone, last_update, created_at, updated_at) select address, address2, district,city_id, postal_code, phone, last_update, now(), now() from address;

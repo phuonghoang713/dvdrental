@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  address: MyString
+  address2: MyString
+  district: MyString
+  city_id: 1
+  post_code: 1
+  phone: MyString
+  last_update: 2019-11-06 13:17:06
+
+two:
+  address: MyString
+  address2: MyString
+  district: MyString
+  city_id: 1
+  post_code: 1
+  phone: MyString
+  last_update: 2019-11-06 13:17:06

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_06_055108) do
+ActiveRecord::Schema.define(version: 2019_11_06_061706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,18 @@ ActiveRecord::Schema.define(version: 2019_11_06_055108) do
     t.index ["city_id"], name: "idx_fk_city_id"
   end
 
+  create_table "addresses", force: :cascade do |t|
+    t.string "address"
+    t.string "address2"
+    t.string "district"
+    t.integer "city_id"
+    t.string "postal_code"
+    t.string "phone"
+    t.datetime "last_update"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "last_update"
@@ -51,6 +63,14 @@ ActiveRecord::Schema.define(version: 2019_11_06_055108) do
   create_table "category", primary_key: "category_id", id: :serial, force: :cascade do |t|
     t.string "name", limit: 25, null: false
     t.datetime "last_update", default: -> { "now()" }, null: false
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.integer "country_id"
+    t.datetime "last_update"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "city", primary_key: "city_id", id: :serial, force: :cascade do |t|
