@@ -33,6 +33,7 @@ Things you may want to cover:
   * pg_dump dbname | gzip > filename.gz
 * restore database
   * pg_restore -U postgres -d dvdrental ~/Download/dvdrental.tar
+  * gunzip -c filename.gz | psql dbname
 * drop table in rails
   * rails db:migrate:down VERSION=20191106043234
 * clone table languages:
