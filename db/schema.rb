@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_06_071703) do
+ActiveRecord::Schema.define(version: 2019_11_06_075635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,6 +117,14 @@ ActiveRecord::Schema.define(version: 2019_11_06_071703) do
     t.index ["film_id"], name: "idx_fk_film_id"
   end
 
+  create_table "film_actors", force: :cascade do |t|
+    t.integer "actor_id"
+    t.integer "film_id"
+    t.datetime "last_update"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "film_categories", force: :cascade do |t|
     t.integer "film_id"
     t.integer "category_id"
@@ -191,6 +199,21 @@ ActiveRecord::Schema.define(version: 2019_11_06_071703) do
     t.string "password", limit: 40
     t.datetime "last_update", default: -> { "now()" }, null: false
     t.binary "picture"
+  end
+
+  create_table "staffs", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "username"
+    t.string "password"
+    t.integer "address_id"
+    t.string "email"
+    t.integer "store_id"
+    t.boolean "active"
+    t.datetime "last_update"
+    t.binary "picture"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "store", primary_key: "store_id", id: :serial, force: :cascade do |t|

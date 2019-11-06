@@ -51,3 +51,7 @@ Things you may want to cover:
   * insert into inventories(film_id, store_id, last_update, created_at, updated_at) select film_id, store_id, last_update, now(), now() from inventory;
 * clone table film_categories
   * insert into film_categories(film_id, category_id, last_update, created_at, updated_at) select film_id, category_id, last_update, now(), now() from film_category;
+* clone table film_actors
+  * insert into film_actors(actor_id, film_id, last_update, created_at, updated_at) select actor_id, film_id, last_update, now(), now() from film_actor;
+* clone table staff
+  * insert into staffs (first_name, last_name, username, password, address_id, email, store_id, active, last_update, picture, created_at, updated_at) select first_name, last_name username, password, address_id, email, store_id, active, last_update, picture, now(), now()  from staff ;
