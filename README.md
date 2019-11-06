@@ -24,8 +24,8 @@ Things you may want to cover:
 * ...
 # dvdrental
 * react_on_rails version : 11.3.0
-  ** rails webpacker:install:react
-  ** rails generate react_on_rails:install
-  ** foreman start -f Procfile.dev
+  * rails webpacker:install:react
+  * rails generate react_on_rails:install
+  * foreman start -f Procfile.dev
 * restore database
-  ** pg_restore -U postgres -d dvdrental ~/Download/dvdrental.tar
+  * pg_restore -U postgres -d dvdrental ~/Download/dvdrental.tar
