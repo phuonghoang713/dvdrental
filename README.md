@@ -29,3 +29,7 @@ Things you may want to cover:
   * foreman start -f Procfile.dev
 * restore database
   * pg_restore -U postgres -d dvdrental ~/Download/dvdrental.tar
+* drop table in rails
+  * rails db:migrate:down VERSION=20191106043234
+* clone table languages:
+  * insert into languages(name, last_update, created_at, updated_at) select name , last_update, now(), now();
