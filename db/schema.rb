@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_06_043234) do
+ActiveRecord::Schema.define(version: 2019_11_06_055108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(version: 2019_11_06_043234) do
     t.string "last_name", limit: 45, null: false
     t.datetime "last_update", default: -> { "now()" }, null: false
     t.index ["last_name"], name: "idx_actor_last_name"
+  end
+
+  create_table "actors", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.datetime "last_update"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "address", primary_key: "address_id", id: :serial, force: :cascade do |t|
@@ -33,6 +41,13 @@ ActiveRecord::Schema.define(version: 2019_11_06_043234) do
     t.index ["city_id"], name: "idx_fk_city_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "last_update"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "category", primary_key: "category_id", id: :serial, force: :cascade do |t|
     t.string "name", limit: 25, null: false
     t.datetime "last_update", default: -> { "now()" }, null: false
@@ -43,6 +58,13 @@ ActiveRecord::Schema.define(version: 2019_11_06_043234) do
     t.integer "country_id", limit: 2, null: false
     t.datetime "last_update", default: -> { "now()" }, null: false
     t.index ["country_id"], name: "idx_fk_country_id"
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.string "name"
+    t.datetime "last_update"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "country", primary_key: "country_id", id: :serial, force: :cascade do |t|
