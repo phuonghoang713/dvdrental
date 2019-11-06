@@ -29,6 +29,8 @@ Things you may want to cover:
   * rails webpacker:install:react
   * rails generate react_on_rails:install
   * foreman start -f Procfile.dev
+* dump database
+  * pg_dump dbname | gzip > filename.gz
 * restore database
   * pg_restore -U postgres -d dvdrental ~/Download/dvdrental.tar
 * drop table in rails
