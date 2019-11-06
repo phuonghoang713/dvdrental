@@ -1,3 +1,3 @@
 class Country < ApplicationRecord
-  has_many :city
+  has_many :cities
 end

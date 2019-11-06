@@ -1,3 +1,3 @@
 class Language < ApplicationRecord
-  has_many :film
+  has_many :films
 end

@@ -1,2 +1,6 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="ui raised segment search-container">
+  <img class="ui centered medium image" src="/logo-text.png" >
+</div>
+<%= react_component("Search") %>
+<%= render partial: "apps/app_cards", locals: { name: "Most Downloaded", app_list: @most_downloaded } %>
+<%= render partial: "apps/app_cards", locals: { name: "Highest Rated", app_list: @highest_rated } %>

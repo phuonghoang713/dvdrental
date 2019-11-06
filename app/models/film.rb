@@ -1,6 +1,6 @@
 class Film < ApplicationRecord
   has_one :film_category
-  has_many :inventory
-  has_many :film_actor
-  belong_to :language
+  has_many :inventories
+  has_many :film_actors
+  belongs_to :language
 end
