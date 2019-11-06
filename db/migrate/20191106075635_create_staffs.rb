@@ -17,6 +17,6 @@ class CreateStaffs < ActiveRecord::Migration[6.0]
   end
 
   def down
-    drop_table :staff
+    drop_table :staffs
   end
 end

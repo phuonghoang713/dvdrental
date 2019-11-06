@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_06_075635) do
+ActiveRecord::Schema.define(version: 2019_11_06_091901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,6 +107,18 @@ ActiveRecord::Schema.define(version: 2019_11_06_075635) do
     t.index ["store_id"], name: "idx_fk_store_id"
   end
 
+  create_table "customers", force: :cascade do |t|
+    t.integer "store_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.integer "address_id"
+    t.boolean "activebool"
+    t.integer "active"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
 # Could not dump table "film" because of following StandardError
 #   Unknown type 'mpaa_rating' for column 'rating'
 
@@ -137,6 +149,20 @@ ActiveRecord::Schema.define(version: 2019_11_06_075635) do
     t.integer "film_id", limit: 2, null: false
     t.integer "category_id", limit: 2, null: false
     t.datetime "last_update", default: -> { "now()" }, null: false
+  end
+
+  create_table "films", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "release_year"
+    t.integer "language_id"
+    t.integer "rental_duration"
+    t.float "rental_rate"
+    t.integer "length"
+    t.integer "replacement_cost"
+    t.text "special_features", array: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "inventories", force: :cascade do |t|
@@ -177,6 +203,16 @@ ActiveRecord::Schema.define(version: 2019_11_06_075635) do
     t.index ["staff_id"], name: "idx_fk_staff_id"
   end
 
+  create_table "payments", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "staff_id"
+    t.integer "rental_id"
+    t.float "amount"
+    t.datetime "payment_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "rental", primary_key: "rental_id", id: :serial, force: :cascade do |t|
     t.datetime "rental_date", null: false
     t.integer "inventory_id", null: false
@@ -186,6 +222,16 @@ ActiveRecord::Schema.define(version: 2019_11_06_075635) do
     t.datetime "last_update", default: -> { "now()" }, null: false
     t.index ["inventory_id"], name: "idx_fk_inventory_id"
     t.index ["rental_date", "inventory_id", "customer_id"], name: "idx_unq_rental_rental_date_inventory_id_customer_id", unique: true
+  end
+
+  create_table "rentals", force: :cascade do |t|
+    t.datetime "rental_date"
+    t.integer "inventory_id"
+    t.integer "customer_id"
+    t.datetime "return_date"
+    t.integer "staff_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "staff", primary_key: "staff_id", id: :serial, force: :cascade do |t|

@@ -55,3 +55,11 @@ Things you may want to cover:
   * insert into film_actors(actor_id, film_id, last_update, created_at, updated_at) select actor_id, film_id, last_update, now(), now() from film_actor;
 * clone table staff
   * insert into staffs (first_name, last_name, username, password, address_id, email, store_id, active, last_update, picture, created_at, updated_at) select first_name, last_name username, password, address_id, email, store_id, active, last_update, picture, now(), now()  from staff ;
+* clone table customers
+  * insert into customers( store_id, first_name, last_name, email, address_id, activebool, active, created_at, updated_at) select store_id, first_name, last_name, email, address_id, activebool, active, create_date, last_update from customer;
+* clone table rentals
+  * insert into rentals(rental_date, inventory_id, return_date, staff_id, created_at, updated_at) select rental_date, inventory_id, return_date, staff_id, now(), last_update from rental;
+* clone table payments
+  * insert into payments(customer_id, staff_id, rental_id, amount, payment_date, created_at, updated_at) select customer_id, staff_id, rental_id, amount, payment_date, now(), now() from payment;
+* clone table films
+  * insert into films(title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, special_features, created_at, updated_at) select title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, special_features, now(), last_update from film;
