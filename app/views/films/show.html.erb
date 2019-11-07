@@ -7,28 +7,49 @@
       <div class="content">
         <h1 class="header"><%= @film.title %></h1>
         <div class="meta">
-          <span class="cinema"><%= @film.rental_duration %></span>
+          <span class="cinema">Price: <%= @film.rental_rate %></span>
         </div>
         <div class="meta">
-          <span class="version">Version <%= @film.replacement_cost %></span>
+          <span class="version">Version: <%= @film.replacement_cost %></span>
         </div>
         <div class="meta">
-          <span class="release">Released <%= @film.created_at.strftime("%F") %></span>
+          <span class="release">Language: <%= @film.language.name %></span>
+        </div>
+        <div class="meta">
+          <span class="release">Released: <%= @film.created_at.strftime("%F") %></span>
         </div>
         <div class="bottom aligned content">
-          <button class="ui primary button" disabled>Download</button>
+          <button class="ui primary button">Download</button>
+          <button class="ui primary button">Buy DVD</button>
+          <button class="ui primary button">Rent</button>
         </div>
       </div>
     </div>
   </div>
   <div class="ui divider"></div>
-  <div class="ui three small statistics">
+  <div class="ui five small statistics">
+    <div class="statistic">
+      <div class="value">
+        <i class="small green arrow alternate circle up outline icon"></i> <%= number_to_human @film.length %>
+      </div>
+      <div class="label">
+        Rented Time
+      </div>
+    </div>
+    <div class="statistic">
+      <div class="value">
+        <i class="small green arrow alternate circle right outline icon"></i> <%= number_to_human @film.length %>
+      </div>
+      <div class="label">
+        Buy DVD
+      </div>
+    </div>
     <div class="statistic">
       <div class="value">
         <i class="small green arrow alternate circle down outline icon"></i> <%= number_to_human @film.length %>
       </div>
       <div class="label">
-        Rented Time
+        Download
       </div>
     </div>
     <div class="statistic">

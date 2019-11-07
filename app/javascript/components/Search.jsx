@@ -12,7 +12,8 @@ export default class Search extends React.Component {
       axios.get('/search.json', { params: { query: value } })
         .then(res => this.setState({ loading: false, results: res.data }))
         .catch(() => this.setState({ loading: false, results: [] }));
-    } else {
+    }
+    else {
       this.setState({ loading: false, results: [] });
     }
   }
