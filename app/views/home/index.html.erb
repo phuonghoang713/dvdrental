@@ -2,6 +2,6 @@
   <img class="ui centered medium image" src="/logo-text.jpg" >
 </div>
 <%= react_component("Search") %>
-<h1>AAAAAAAaaaaaa</h1>
-<% render partial: "films/film_cards", locals: { name: "Most Released", film_list: Film.order(release_year: :desc).limit(5) } %>
-<% render partial: "films/film_cards", locals: { name: "Highest Rated", film_list: Film.order(release_year: :desc).limit(5) } %>
+
+<%= render partial: "films/film_cards", locals: { name: "Most Released", film_list: @most_released } %>
+<%= render partial: "films/film_cards", locals: { name: "Highest Rated", film_list: @highest_rated } %>
