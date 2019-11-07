@@ -1,0 +1,25 @@
+<h1>BBBBBBBBBBBBBBBBBBBBBBBBBBB</h1>
+<h1 class="header"><%= name %></h1>
+<div class="ui divider"></div>
+<div class="ui link cards film-cards">
+  <% film_list.each do |film| %>
+    <a class="card" href="<%= film_path(film) %>">
+      <div class="image">
+        <img src="<%= film_image(film) %>">
+      </div>
+      <div class="content">
+        <div class="header"><%= film.title %></div>
+        <div class="meta"><%= film.special_features.first %></div>
+        <div class="description"><%= truncate film.description, length: 100, seperator: /\w+/ %></div>
+      </div>
+      <div class="extra content">
+        <span class="right floated">
+          <i class="star icon"></i> <%= film.rental_rate %>
+        </span>
+        <span>
+          <i class="arrow alternate circle down outline icon"></i> <%= number_to_human film.rental_rate %>
+        </span>
+      </div>
+    </a>
+  <% end %>
+</div>

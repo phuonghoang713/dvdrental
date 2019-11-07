@@ -1,6 +1,7 @@
 <div class="ui raised segment search-container">
-  <img class="ui centered medium image" src="/logo-text.png" >
+  <img class="ui centered medium image" src="/logo-text.jpg" >
 </div>
 <%= react_component("Search") %>
-<%= render partial: "apps/app_cards", locals: { name: "Most Downloaded", app_list: @most_downloaded } %>
-<%= render partial: "apps/app_cards", locals: { name: "Highest Rated", app_list: @highest_rated } %>
+<h1>AAAAAAAaaaaaa</h1>
+<% render partial: "films/film_cards", locals: { name: "Most Released", film_list: Film.order(release_year: :desc).limit(5) } %>
+<% render partial: "films/film_cards", locals: { name: "Highest Rated", film_list: Film.order(release_year: :desc).limit(5) } %>

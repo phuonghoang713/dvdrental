@@ -1,0 +1,64 @@
+<div class="ui padded raised segment">
+  <div class="ui items">
+    <div class="item">
+      <div class="image">
+        <img src="<%= film_image(@film) %>">
+      </div>
+      <div class="content">
+        <h1 class="header"><%= @film.title %></h1>
+        <div class="meta">
+          <span class="cinema"><%= @film.rental_duration %></span>
+        </div>
+        <div class="meta">
+          <span class="version">Version <%= @film.replacement_cost %></span>
+        </div>
+        <div class="meta">
+          <span class="release">Released <%= @film.created_at.strftime("%F") %></span>
+        </div>
+        <div class="bottom aligned content">
+          <button class="ui primary button" disabled>Download</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui divider"></div>
+  <div class="ui three small statistics">
+    <div class="statistic">
+      <div class="value">
+        <i class="small green arrow alternate circle down outline icon"></i> <%= number_to_human @film.length %>
+      </div>
+      <div class="label">
+        Rented Time
+      </div>
+    </div>
+    <div class="statistic">
+      <div class="value">
+        <i class="small yellow star icon"></i> <%= @film.rental_duration %>
+      </div>
+      <div class="label">
+        Stars
+      </div>
+    </div>
+    <div class="statistic">
+      <div class="value">
+        <i class="small users icon"></i> <%= number_with_delimiter @film.rental_duration %>
+      </div>
+      <div class="label">
+        Ratings
+      </div>
+    </div>
+  </div>
+  <div class="ui divider"></div>
+  <h2 class="header">Description</h2>
+  <div>
+    <p><%= @film.description %></p>
+  </div>
+  <div class="ui divider"></div>
+  <h2 class="header">Screenshots</h2>
+  <div style="overflow-x: scroll; display: flex;">
+    <img src="https://dummyimage.com/420x320/ff7f7f/333333.png&text=Sample 1" >
+    <img src="https://dummyimage.com/420x320/7f7fff/333333.png&text=Sample 2" >
+    <img src="https://dummyimage.com/420x320/7fff7f/333333.png&text=Sample 3" >
+    <img src="https://dummyimage.com/420x320/7f7f7f/333333.png&text=Sample 4" >
+  </div>
+</div>

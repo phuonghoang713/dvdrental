@@ -1,0 +1,30 @@
+<div class="ui raised segment">
+  <h1 class="ui header"><%= params[:query] %> (<%= @films.count %> results)</h1>  
+  <div class="ui divider"></div>
+  <div class="ui divided link items">
+    <% @films.each do |film| %>
+      <a class="item" href="<%= film_path(film) %>">
+        <div class="small image">
+          <img src="<%= film_image(film) %>">
+        </div>
+        <div class="content">
+          <div class="header"><%= film.title %></div>
+          <div class="meta">
+            <span><%=film.rental_rate %></span>
+          </div>
+          <div class="description">
+            <p><%= truncate film.description, length: 250, seperator: /\w+/ %></p>
+          </div>
+          <div class="extra">
+            <div class="ui right floated primary button">
+              View More
+              <i class="right chevron icon"></i>
+            </div>
+            <div class="ui label"><i class="green arrow alternate circle down outline icon"></i> <%= number_to_human film.length %> Downloads</div>
+            <div class="ui label"><i class="yellow star icon"></i> <%= film.rental_duration %> Rating</div>
+          </div>
+        </div>
+      </a>
+    <% end %>
+  </div>
+</div>
