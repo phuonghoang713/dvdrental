@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: payments
+#
+#  id           :integer          not null, primary key
+#  customer_id  :integer
+#  staff_id     :integer
+#  rental_id    :integer
+#  amount       :float
+#  payment_date :datetime
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:

@@ -34,6 +34,8 @@ Things you may want to cover:
 * restore database
   * pg_restore -U postgres -d dvdrental ~/Download/dvdrental.tar
   * gunzip -c filename.gz | psql dbname
+* find duplicate data
+  * SELECT name, email, COUNT(*) FROM users GROUP BY name, email HAVING COUNT(*) > 1
 * drop table in rails
   * rails db:migrate:down VERSION=20191106043234
 * clone table languages:
