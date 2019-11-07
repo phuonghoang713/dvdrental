@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :staffs
+  devise_for :customers
   get 'films/index'
   get 'films/show'
   root 'home#index'
