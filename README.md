@@ -63,7 +63,7 @@ Things you may want to cover:
 * clone table customers
   * insert into customers( store_id, first_name, last_name, email, address_id, activebool, active, created_at, updated_at) select store_id, first_name, last_name, email, address_id, activebool, active, create_date, last_update from customer;
 * clone table rentals
-  * insert into rentals(rental_date, inventory_id, return_date, staff_id, created_at, updated_at) select rental_date, inventory_id, return_date, staff_id, now(), last_update from rental;
+  * insert into rentals(rental_date, inventory_id, customer_id, return_date, staff_id, created_at, updated_at) select rental_date, inventory_id, customer_id, return_date, staff_id, now(), last_update from rental;
 * clone table payments
   * insert into payments(customer_id, staff_id, rental_id, amount, payment_date, created_at, updated_at) select customer_id, staff_id, rental_id, amount, payment_date, now(), now() from payment;
 * clone table films

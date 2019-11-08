@@ -14,22 +14,25 @@
     <div class="ui container">
       <div class="ui stackable menu">
         <a class="header item" href="/">
-          <img src="/logo.png">
+          <img src="/logo.jpg">
           <span style="margin-left: 8px;">Film Rental</span>
         </a>
         <a class="item" href="/">Home</a>
         <a class="item">Featured Apps</a>
         <a class="item">Categories</a>
         <div class="right menu">
-          <div class="item">
-            <div class="ui secondary button">Log In</div>
-          </div>
-          <div class="item">
-            <div class="ui primary button">Sign Up</div>
-          </div>
-          <div class="item">
-            <div class="ui button">Sign Out</div>
-          </div>
+          <% if customer_signed_in? %>
+            <div class="item">
+              <div class="ui button">Sign Out</div>
+            </div>
+          <% else %>
+            <div class="item">
+              <div class="ui secondary button">Log In</div>
+            </div>
+            <div class="item">
+              <div class="ui primary button">Sign Up</div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
